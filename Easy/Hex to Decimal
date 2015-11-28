@@ -1,0 +1,11 @@
+# Title : Hex to Decimal from CodeEval
+# Author : James Fody
+# Description : Convert Hex number to decimal and display
+
+File.open("data.txt").each_line do |line|
+  if !line.empty?
+    line.delete!"\n"
+
+    puts line.hex
+  end
+end
