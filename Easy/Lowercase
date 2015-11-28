@@ -1,0 +1,9 @@
+# Title : Lowercase from CodeEval
+# Author : James Fody
+# Description : Display given text in lowercase
+
+File.open("data.txt").each_line do |line|
+  if !line.empty?
+    print line.downcase
+  end
+end
