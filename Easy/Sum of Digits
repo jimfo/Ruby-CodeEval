@@ -1,0 +1,16 @@
+# Title : Sum Of Digits from CodeEval
+# Author : James Fody
+# Description : Display the sum of digits of given number
+
+File.open("data.txt").each_line do |line|
+  if !line.empty?
+    line.delete!("\n")
+    line =  line.split(//)
+    sum = 0
+
+    for x in 0...line.length
+      sum += Integer(line[x])
+    end
+    puts sum
+  end
+end
