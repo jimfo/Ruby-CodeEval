@@ -1,0 +1,14 @@
+# Title : Even Number from CodeEval
+# Author : James Fody
+# Description : Determine if a number of odd or even
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    x = Integer(line.delete("\n"))
+    if x % 2 == 0
+      puts 1
+    else
+      puts 0
+    end
+  end
+end
