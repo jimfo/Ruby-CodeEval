@@ -1,0 +1,27 @@
+# Title : Sum Of Primes from CodeEval
+# Author : James Fody
+# Description : Display the sum of first 1000 primes
+
+count = 0
+x = 2
+z = 0
+
+while count < 1000 do
+  isPrime = true
+
+  for y in 2...x
+
+      if x % y == 0
+        isPrime = false
+      end
+      y+=1
+  end
+
+      if isPrime
+        z += x;
+        count+=1
+      end
+
+      x+=1
+  end
+puts z
