@@ -1,0 +1,5 @@
+# Title : File Size from CodeEval
+# Author : James Fody
+# Description : Display size of given file
+
+print File.size("data.txt")
