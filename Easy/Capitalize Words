@@ -1,0 +1,16 @@
+# Title : Capitalize Words from CodeEval
+# Author : James Fody
+# Description : Capitalize the first letter of evey word in a given sentence
+
+File.open("data.txt").each_line do |line|
+  if !line.empty?
+    line = line.split(" ")
+    line.delete("\n")
+    for x in 0...line.length
+      word = line[x].split("")
+      word[0].upcase!
+      print word.join + " "
+    end
+    print "\n"
+  end
+end
