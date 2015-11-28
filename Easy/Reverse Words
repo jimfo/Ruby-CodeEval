@@ -1,0 +1,19 @@
+# Title : Reverse Words from CodeEval
+# Author : James Fody
+# Description : Display a line of given words in reverse
+
+File.open("data.txt").each_line do |line|
+  if !line.empty?
+
+    words = line.split(" ")
+    words.reverse!
+    for x in 0...words.length
+      if x == words.length-1
+        print words[x].strip
+      else
+        print words[x] + " "
+      end
+    end
+  end
+  print "\n"
+end
