@@ -1,0 +1,20 @@
+# Title : N mod M from CodeEval
+# Author : James Fody
+# Description : Find N mod M without the modulus operator
+
+File.open("data.txt").each_line do |line|
+  if !line.empty?
+    line = line.split(",")
+
+    x = Integer(line[0])
+    y = Integer(line[1].delete("\n"))
+    z = x / y
+
+    if z != 0
+      x = x - (z*y)
+    end
+
+    puts x
+
+  end
+end
