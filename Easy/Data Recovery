@@ -1,0 +1,35 @@
+# Title : Data Recovery from CodeEval
+# Author : James Fody
+# Description : Each line is a test case which consists of a set of words and a sequence of numbers
+# separated by a semicolon. The words within a set and the numbers within a sequence are separated
+# by a single space. Print out a reconstructed sentence for each test case, one per line.
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    temp = line.split(";")
+    wordArr = temp[0].split(" ")
+    numArr = temp[1].split(" ")
+    recovered = Array.new(wordArr.length+1)
+    index = -1
+
+    for i in 0...numArr.length
+      num = Integer(numArr[i])
+      recovered[num] = wordArr[i].delete(' ')
+      wordArr[i] = nil
+    end
+
+    for i in 0...wordArr.length
+      if wordArr[i] != nil
+        index = i
+      end
+    end
+
+    for i in 1...recovered.length
+      if recovered[i] == nil
+        recovered[i] = wordArr[index]
+      end
+      print "#{recovered[i]} "
+    end
+  end
+  puts
+end
