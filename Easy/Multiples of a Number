@@ -1,0 +1,22 @@
+# Title : Multiples of a Number from CodeEval
+# Author : James Fody
+# Description : Given numbers x and n, where n is a power of 2, 
+# print out the smallest multiple of n which is greater than or equal to x. 
+# Do not use division or modulo operator. 
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    temp = line.split(",")
+
+    num1 = Integer(temp[0])
+    num2 = Integer(temp[1])
+    x = 1
+    power = 1
+
+    while x < num1
+      x = num2 * power
+      power += 1
+    end
+    puts "#{x}"
+  end
+end
