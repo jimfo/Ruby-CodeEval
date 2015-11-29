@@ -1,0 +1,28 @@
+# Title : Split The Number from CodeEval
+# Author : James Fody
+# Description : You are given a number N and a pattern. The pattern consists of lowercase latin letters
+# and one operation "+" or "-". The challenge is to split the number and evaluate it according to this
+# pattern e.g. 1232 ab+cd -> a:1, b:2, c:3, d:2 -> 12+32 -> 44
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    temp = line.split(" ")
+    result = 0
+
+    if temp[1].index("+") != nil
+      indx = temp[1].index("+")
+      num1 = Integer(temp[0][0...indx], 10)
+      num2 = Integer(temp[0][indx..temp[1].length], 10)
+      result = num1 + num2
+    end
+
+    if temp[1].index("-") != nil
+      indx = temp[1].index("-")
+      num1 = Integer(temp[0][0...indx], 10)
+      num2 = Integer(temp[0][indx..temp[1].length], 10)
+      result = num1 - num2
+    end
+
+  print "#{result} \n"
+  end
+end
