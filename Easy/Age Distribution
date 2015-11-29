@@ -1,0 +1,30 @@
+# Title : Age Distribution from CodeEval
+# Author : James Fody
+# Description : Display the message based on the given number
+
+File.open("data").each_line do |line|
+  if !line.empty?
+
+    num = Integer(line)
+
+    if num >= 0 && num <= 2
+      puts "Still in Mama's arms"
+    elsif num >= 3 && num <= 4
+      puts "Preschool Maniac"
+    elsif num >= 5 && num <= 11
+      puts "Elementary school"
+    elsif num >= 12 && num <= 14
+      puts "Middle school"
+    elsif num >= 15 && num <= 18
+      puts "High school"
+    elsif num >= 19 && num <= 22
+      puts "College"
+    elsif num >= 23 && num <= 65
+      puts "Working for the man"
+    elsif num >= 66 && num <= 100
+      puts "The Golden Years"
+    elsif num < 0 || num > 100
+      puts "This program is for humans"
+    end
+  end
+end
