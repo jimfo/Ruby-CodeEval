@@ -1,0 +1,30 @@
+# Title : Prime Palindrome from CodeEval
+# Author : James Fody
+# Description : Find the largest Prime Palindrome under 1000
+
+num = 0
+z = 0
+palin = 0
+
+isPrime = true
+
+for x in 2..1000
+  isPrime = true
+
+  for y in 2...x
+
+    if x % y == 0
+      isPrime = false
+    end
+  end
+
+  if isPrime
+    str = String(x)
+    str2 = str.reverse
+
+    if str == str2
+      palin = x;
+    end
+  end
+end
+puts palin
