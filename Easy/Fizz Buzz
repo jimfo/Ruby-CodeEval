@@ -1,0 +1,26 @@
+# Title : Fizz Buzz from CodeEval
+# Author : James Fody
+# Description : Write a program that prints out the final series of numbers where those divisible by X, Y
+# and both are replaced by “F” for fizz, “B” for buzz and “FB” for fizz buzz.
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    temp = line.split(" ")
+    x = Integer(temp[0])
+    y = Integer(temp[1])
+    z = Integer(temp[2])
+
+    for i in 1..z
+      if i % x == 0 && i % y == 0
+        print "FB "
+      elsif i % y == 0
+        print "B "
+      elsif i % x == 0
+        print "F "
+      elsif i % y != 0 && i % x != 0
+        print "#{i} "
+      end
+    end
+    puts
+  end
+end
