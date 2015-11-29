@@ -1,0 +1,30 @@
+# Title : Lettercase Percentage ratio from CodeEval
+# Author : James Fody
+# Description : Display the percentage of lowercase and uppercase letters
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line = line.split("")
+    line.delete("\n")
+
+    count = 0.00
+    up = 0.00
+    down = 0.00
+
+    for x in 0...line.length
+        if line[x].ord >= 97 && line[x].ord <= 122
+          down += 1.00
+        elsif
+        line[x].ord >= 65 && line[x].ord <= 90
+          up += 1.00
+        end
+      count += 1.00
+    end
+
+      downPercent = ((down / count) * 100)
+      upPercent = ((up / count) * 100)
+
+    puts "lowercase: #{'%.2f' % downPercent} uppercase: #{'%.2f' % upPercent}"
+
+    end
+  end
