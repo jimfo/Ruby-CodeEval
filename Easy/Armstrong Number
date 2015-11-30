@@ -1,0 +1,26 @@
+# Title : Armstrong number from File from CodeEval
+# Author : James Fody
+# Description : An Armstrong number is an n-digit number that is equal to the sum of the n'th powers of its digits. 
+# Determine if the input numbers are Armstrong numbers
+
+File.open("data").each_line do |line|
+  if !line.empty?
+
+    line.strip!
+    testNum = Integer(line)
+    line = line.chomp.split("").map { |x| x.to_i }
+    num = 0
+    len = line.length
+
+    for i in 0...len
+      num += line[i]**len
+    end
+
+    if num == testNum
+      puts "True"
+    else
+      puts "False"
+    end
+
+  end
+end
