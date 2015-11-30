@@ -1,0 +1,14 @@
+# Title : Matrix Rotation from CodeEval
+# Author : James Fody
+# Description : You are given a 2D N×N matrix. Each element of the matrix is a
+# letter: from ‘a’ to ‘z’. Your task is to rotate the matrix 90° clockwise: 
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line = line.split(" ")
+    Math.sqrt(line.length)
+    arr = line.each_slice(Math.sqrt(line.length)).to_a
+    print arr.transpose.map(&:reverse).join(' ')
+  end
+  puts
+end
