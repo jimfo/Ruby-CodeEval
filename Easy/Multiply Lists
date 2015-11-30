@@ -1,0 +1,22 @@
+# Title : Multiply Lists from CodeEval
+# Author : James Fody
+# Description : The lists are separated with a pipe char, numbers are separated with a space char.
+# The number of elements in lists are in range [1, 10].
+# The number of elements is the same in both lists.
+# Each element is a number in range [0, 99].
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line = line.split("|")
+    arr1 = line[0].split(" ")
+    arr2 = line[1].split(" ")
+
+    for i in 0...arr1.length
+      x = Integer(arr1[i])
+      y = Integer(arr2[i])
+      z = x * y
+      print "#{z} "
+    end
+    puts
+  end
+end
