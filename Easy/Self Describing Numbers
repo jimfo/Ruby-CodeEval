@@ -1,0 +1,30 @@
+# Title : Self Describing Numbers from File from CodeEval
+# Author : James Fody
+# Description : A number is a self-describing number when (assuming digit positions are labeled 0 to N-1),
+# the digit in each position is equal to the number of times that that digit appears in the number
+# If the number is a self-describing number, print out 1. If not, print out 0.
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line.strip!
+    line = line.chomp.split("").map { |x| x.to_i }
+    happy = true
+
+    for i in 0...line.length
+      z = line[i]
+      x = line.count(i)
+
+      if z != x
+        happy = false
+        break
+      end
+    end
+
+    if happy
+      puts 1
+    else
+      puts 0
+    end
+
+  end
+end
