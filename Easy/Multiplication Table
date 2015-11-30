@@ -1,0 +1,11 @@
+# Title : Multiplication Table from CodeEval
+# Author : James Fody
+# Description : Print out the table in a matrix like fashion, each number formatted to a width of 4 
+# (The numbers are right-aligned and strip out leading/trailing spaces on each line).
+
+for x in 1..12
+  for y in 1..12
+    printf "%4s", x*y
+  end
+  puts
+end
