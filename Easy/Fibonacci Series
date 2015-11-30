@@ -1,0 +1,28 @@
+# Title : Fibonacci Series from File from CodeEval
+# Author : James Fody
+# Description : The Fibonacci series is defined as: F(0) = 0; F(1) = 1; F(n) = F(n–1) + F(n–2) when n>1.
+# Given an integer n≥0, print out the F(n). 
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    num = Integer(line)
+    cnt = 1
+    nxt = 1
+    prv = 0
+    result = 0
+
+    if num > 0
+      while cnt != num
+        result = prv + nxt
+        prv = nxt
+        nxt = result
+        cnt += 1
+      end
+    end
+    if num == 0 || num == 1
+      puts num
+    else
+      puts result
+    end
+  end
+end
