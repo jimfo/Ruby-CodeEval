@@ -1,0 +1,29 @@
+# Title : Hidden Digits from CodeEval
+# Author : James Fody
+# Description : In this challenge you're given a random string containing hidden and visible digits.
+# The digits are hidden behind lower case latin letters as follows: 0 is behind 'a', 1 is behind ' b '
+# etc., 9 is behind 'j'. Any other symbol in the string means nothing and has to be ignored.
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    digits = { "a" => 0, "b" => 1, "c" => 2, "d" => 3, "e" => 4,
+               "f" => 5, "g" => 6, "h" => 7, "i" => 8, "j" => 9}
+
+    line = line.split("")
+    found = false
+    for i in 0...line.length
+      if digits.has_key?(line[i])
+        print digits[line[i]]
+        found = true
+      elsif line[i].ord >= 48 && line[i].ord <= 57
+        print line[i]
+        found = true
+      end
+    end
+    if !found
+      print "NONE"
+    end
+    puts
+
+  end
+end
