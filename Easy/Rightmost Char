@@ -1,0 +1,17 @@
+# Title : Rightmost Char from File from CodeEval
+# Author : James Fody
+# Description : You are given a string 'S' and a character 't'. Print out the position of the rightmost
+# occurrence of 't' (case matters) in 'S' or -1 if there is none. The position to be printed out is zero based.
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line.strip!
+    line = line.split(",")
+    x = line[0].rindex(line[1])
+    if x == nil
+      puts -1
+    else
+      puts x
+    end
+  end
+end
