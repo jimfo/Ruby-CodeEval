@@ -1,0 +1,14 @@
+# Title : Simple Sorting from CodeEval
+# Author : James Fody
+# Description : Print sorted numbers in the following way. Please note, that you need to print the numbers
+# till the 3rd digit after the dot including trailing zeros.
+
+File.open("data").each_line do |line|
+  if !line.empty?
+
+    line = line.chomp.split(" ").map { |x| x.to_f }
+    line = line.sort.map { |n| "%.3f" % n }
+    print line.join(" ")
+    puts
+  end
+end
