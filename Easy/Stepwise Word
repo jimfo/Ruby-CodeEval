@@ -1,0 +1,28 @@
+# Title : Stepwise Word from CodeEval
+# Author : James Fody
+# Description : Find the longest word in each line and print it in one line in a stepwise manner.
+# Separate each new step with a space. If there are several words of the same length and they are
+# the longest, then print the first word from the list.
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line = line.split(" ")
+    word = line[0]
+
+    for i in 1...line.length
+      if word.length < line[i].length
+        word = line[i]
+      end
+    end
+    word = word.split('')
+
+    for i in 0...word.length
+      for j in 1..i
+        print "*"
+      end
+      print "#{word[i]} "
+    end
+
+    puts
+  end
+end
