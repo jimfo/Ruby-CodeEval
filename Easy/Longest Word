@@ -1,0 +1,17 @@
+# Title : Longest Word from CodeEval
+# Author : James Fody
+# Description : In this challenge you need to find the longest word in a sentence.
+# If the sentence has more than one word of the same length you should pick the first one.
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    word = ""
+    line = line.split(" ")
+    for i in 0...line.length
+      if word.length < line[i].length
+        word = line[i]
+      end
+    end
+    puts word
+  end
+end
