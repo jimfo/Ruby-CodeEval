@@ -1,0 +1,15 @@
+# Title : Penultimate Word from CodeEval
+# Author : James Fody
+# Description : Write a program which finds the next-to-last word in a string.
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line = line.split(" ")
+
+    if line.length > 1
+      puts line[line.length-2]
+    else
+      puts line[0]
+    end
+  end
+end
