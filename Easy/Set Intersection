@@ -1,0 +1,16 @@
+# Title : Set Intersection from File from CodeEval
+# Author : James Fody
+# Description : You are given two sorted list of numbers (ascending order). The lists themselves are comma delimited
+# and the two lists are semicolon delimited. Print out the intersection of these two sets.
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line.strip!
+    line = line.split(";")
+    arr1 = line[0].split(",")
+    arr2 = line[1].split(",")
+    arr3 = arr1 & arr2
+    print arr3.join(",")
+    puts
+  end
+end
