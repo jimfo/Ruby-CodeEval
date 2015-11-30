@@ -1,0 +1,13 @@
+# Title : Unique Elements from File from CodeEval
+# Author : James Fody
+# Description : File containing a list of sorted integers, comma delimited, one per line.
+# Print out the sorted list with duplicates removed, one per line
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line.strip!
+    line = line.split(",")
+    print line.uniq.join(",")
+    puts
+  end
+end
