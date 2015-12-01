@@ -1,0 +1,26 @@
+# Title : String Rotation from CodeEval
+# Author : James Fody
+# Description :  You are given two strings. Determine if the second string is a rotation of the first string.
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line.strip!
+    a,b = line.split(",")
+    match = false
+
+    for i in 0...a.length
+      c = a[i...a.length] + a[0...i]
+
+      if c == b
+        match = true
+      end
+    end
+    
+    if match
+      puts "True"
+    else
+      puts "False"
+    end
+    
+  end
+end
