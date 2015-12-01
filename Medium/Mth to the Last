@@ -1,0 +1,19 @@
+# Title : Mth to the Last from CodeEval
+# Author : James Fody
+# Description : Print to stdout the Mth element from the end of the list, one per line.
+# If the index is larger than the number of elements in the list, ignore that input
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    
+    line.strip!
+    line = line.split(" ")
+    num = Integer(line.last)
+    line.delete(line.last)
+
+    if line.length >= num-1
+      puts line[line.length-num]
+    end
+
+  end
+end
