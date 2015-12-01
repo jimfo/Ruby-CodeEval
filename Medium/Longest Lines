@@ -1,0 +1,23 @@
+# Title : Longest Lines from CodeEval
+# Author : James Fody
+# Description : Write a program which reads a file and prints to stdout the specified number of the
+# longest lines that are sorted based on their length in descending order.
+
+arr = Array.new
+File.open("data").each_line do |line|
+  if !line.empty?
+    line.strip!
+    arr.push(line)
+  end
+end
+
+z = Integer(arr[0])
+arr.delete_at(0)
+
+arr = arr.sort_by {|x| x.length}
+
+arr.reverse!
+
+for i in 0...z
+  puts arr[i]
+end
