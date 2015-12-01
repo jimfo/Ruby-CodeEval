@@ -1,0 +1,24 @@
+# Title : Point in a Circle from CodeEval
+# Author : James Fody
+# Description : Having coordinates of the center of a circle, it's radius and coordinates of a point
+# you need to define whether this point is located inside of this circle.
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line.strip!
+    center, radius, point = line.split(";")
+
+    h = Float(center[9...center.index(",")])
+    k = Float(center[center.index(",")+1...center.length-1])
+    x = Float(point[9...point.index(",")])
+    y = Float(point[point.index(",")+1...point.length-1])
+    r = Float(radius[8...radius.length])
+
+    if ((x-h)**2 + (y-k)**2) < r**2
+      puts "true"
+    else
+      puts "false"
+    end
+
+  end
+end
