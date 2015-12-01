@@ -1,0 +1,29 @@
+# Title : Lowest Unique Number from CodeEval
+# Author : James Fody
+# Description : There is a game where each player picks a number from 1 to 9, writes it on a paper and
+# gives to a guide. A player wins if his number is the lowest unique. We may have 10-20 players in our game
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line.strip!
+    arr = Array.new
+    line = line.split(" ")
+
+    for i in 0...line.length
+      s = line[i]
+
+      if line.count(s) == 1
+        arr << s
+      end
+    end
+
+    if arr.length == 0
+      puts 0
+    else
+      arr.sort!
+      k = line.index(arr[0])
+      puts k+1
+    end
+    
+  end
+end
