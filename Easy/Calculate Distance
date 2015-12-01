@@ -1,0 +1,15 @@
+# Title : Calculate Distance from File from CodeEval
+# Author : James Fody
+# Description :  You have coordinates of 2 points and need to find the distance between them.
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line.strip!
+
+    x1, y1, x2, y2 = line.scan(/-*[0-9]+/).map { |n| n.to_i }
+
+    distance = Math.sqrt(((x1-x2)**2) + ((y1-y2)**2))
+    puts Integer(distance)
+    
+  end
+end
