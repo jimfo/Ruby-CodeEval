@@ -1,0 +1,20 @@
+# Title : Overlapping Rectangles from CodeEval
+# Author : James Fody
+# Description : Your program should accept as its first argument a path to a filename. 
+# Each line in this file contains 8 comma separated co-ordinates. The co-ordinates are 
+# upper left x of A, upper left y of A, lower right x of A, lower right y of A, upper 
+# left x of B, upper left y of B, lower right x of B, lower right y of B.
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line.strip!
+    r1x1,r1y1,r1x2,r1y2,r2x1,r2y1,r2x2,r2y2 = line.split(",").map { |x| x.to_i }
+    
+    if r1x1 > r2x2 || r1x2 < r2x1  || r1y1 < r2y2 || r1y2 > r2y1
+      puts "False"
+    else
+      puts "True"
+    end
+    
+  end
+end
