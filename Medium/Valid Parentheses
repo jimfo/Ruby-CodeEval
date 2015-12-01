@@ -1,0 +1,55 @@
+# Title : Valid Parentheses from CodeEval
+# Author : James Fody
+# Description : Given a string comprising just of the characters (,),{,},[,] determine if it is well-formed or not.
+
+
+
+def validParen(p)
+
+  stack = Array.new
+  p = p.split("")
+
+  for i in 0...p.length
+    curr = p[i]
+
+    if curr == "(" || curr == "[" || curr == "{"
+      stack.push(curr)
+
+    elsif curr == ")" || curr == "]" || curr == "}"
+
+      if stack.empty?
+        return false
+      else
+        top = stack.last
+
+        if curr == ")" && top == "(" || curr == "]" && top == "[" || curr == "}" && top == "{"
+          stack.pop
+        else
+          return false
+        end
+
+      end
+    end
+  end
+
+  if stack.empty?
+    return true
+  else
+    return false
+  end
+end
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line.strip!
+
+    valid = validParen(line)
+
+    if valid
+      puts "True"
+    else
+      puts "False"
+    end
+
+  end
+end
