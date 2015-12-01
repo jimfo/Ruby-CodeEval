@@ -1,0 +1,24 @@
+# Title : Find A Writer from CodeEval
+# Author : James Fody
+# Description :  You have a set of rows with names of famous writers encoded inside.
+# Each row is divided into 2 parts by pipe char (|). The first part has a writer's name.
+# The second part is a "key" to generate a name. Your goal is to go through each number
+# in the key (numbers are separated by space) left-to-right. Each number represents a position
+# in the 1st part of a row. This way you collect a writer's name which you have to output.
+
+File.open("data").each_line do |line|
+  if !line.empty?
+
+    line.strip!
+    line = line.split("|")
+    alphaArr = line[0].split("")
+    numArr = line[1].split(" ").map { |x| x.to_i }
+    writer = ""
+
+    for i in 0...numArr.length
+      writer << alphaArr[numArr[i]-1]
+    end
+    print writer
+    puts
+  end
+end
