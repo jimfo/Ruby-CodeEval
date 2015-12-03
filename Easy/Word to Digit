@@ -1,0 +1,36 @@
+# Title : Word to Digit from CodeEval
+# Author : James Fody
+# Description : Given a string representation of a set of numbers you need to print this number.
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line.strip!
+    line = line.split(";")
+    word = ""
+    for i in 0...line.length
+      case line[i]
+        when "zero"
+          word += "0"
+        when "one"
+          word += "1"
+        when "two"
+          word += "2"
+        when "three"
+          word += "3"
+        when "four"
+          word += "4"
+        when "five"
+          word += "5"
+        when "six"
+          word += "6"
+        when "seven"
+          word += "7"
+        when "eight"
+          word += "8"
+        when "nine"
+          word += "9"
+      end
+    end
+    puts word
+  end
+end
