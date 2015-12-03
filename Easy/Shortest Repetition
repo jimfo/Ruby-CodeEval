@@ -1,0 +1,18 @@
+# Title : Shortest Repetition from CodeEval
+# Author : James Fody
+# Description : Find the period of the shortest repetition
+
+arr = Array.new
+File.open("data").each_line do |line|
+  if !line.empty?
+    line.strip!
+    line = line.split("")
+
+    s = line[0]
+
+    x = line.count(s)
+
+    frq = line.length / x.to_i
+    puts frq
+  end
+end
