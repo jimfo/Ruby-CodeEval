@@ -1,0 +1,78 @@
+# Title : Roman Numerals from CodeEval
+# Author : James Fody
+# Description : Convert a Cardinal number to a Roman Numeral
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line.strip!
+    num = line.to_i
+    roman = ""
+
+    while num >= 1000
+      roman += "M"
+      num -= 1000
+    end
+
+    while num >= 900
+      roman += "CM"
+      num -= 900
+    end
+
+    while num >= 500
+      roman += "D"
+      num -= 500
+    end
+
+    while num >= 400
+      roman += "CD"
+        num -= 400
+    end
+
+    while num >= 100
+      roman += "C"
+      num -= 100
+    end
+
+    while num >= 90
+      roman += "XC"
+      num -= 90
+    end
+
+    while num >= 50
+      roman += "L"
+      num -= 50
+    end
+
+    while num >= 40
+      roman += "XL"
+      num -= 40
+    end
+
+    while num >= 10
+      roman += "X"
+      num -= 10
+    end
+
+    while num >= 9
+      roman += "IX"
+      num -= 9
+    end
+
+    while num >= 5
+      roman += "V"
+      num -= 5
+    end
+
+    while num >= 4
+      roman += "IV"
+      num -= 4
+    end
+
+    while num >= 1
+      roman += "I"
+      num -= 1
+    end
+    
+    puts roman
+  end
+end
