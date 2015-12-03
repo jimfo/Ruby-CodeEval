@@ -1,0 +1,42 @@
+# Title : Beautiful Strings from CodeEval
+# Author : James Fody
+# Description :  This is a FB Hackathon challenge, the solution is the sum of the
+# frequency of a letter's occurrence multiplied by a descending number starting at
+# 26 down to 1. Ex. aaabbc = (3*26)+(2*25)+(1*24) = 152
+
+require 'set'
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line.strip!
+    line = line.downcase
+
+    unique = Array.new
+    freq = Array.new
+    result = 0
+    val = 26
+
+    for x in 0...line.length
+      if 96 < line[x].ord && 123 > line[x].ord
+        unique.push(line[x])
+      end
+    end
+
+    unique.uniq!
+
+    for i in 0...unique.length
+      freq.push(line.count(unique[i]))
+    end
+
+    freq.sort!{|x,y| y <=> x}
+
+    for x in 0...freq.length
+      result += freq[x].to_i * val
+      if val > 0
+        val -= 1
+      end
+    end
+
+  end
+    print result
+end
