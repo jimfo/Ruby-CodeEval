@@ -1,0 +1,30 @@
+# Title : Roller Coaster from CodeEval
+# Author : James Fody
+# Description :  You are given a piece of text. Your job is to write a program that sets the case of text characters
+# according to the following rules:
+# 1  The first letter of the line should be in uppercase.
+# 2  The next letter should be in lowercase.
+# 3  The next letter should be in uppercase, and so on.
+# 4  Any characters, except for the letters, are ignored during determination of letter case.
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line.strip!
+    line.downcase!
+    count = 0
+
+    for i in 0...line.length
+      if line[i].ord > 96 && line.ord < 123
+        count += 1
+
+        if count % 2 != 0
+          line[i] = line[i].upcase
+        end
+
+      end
+    end
+  end
+
+    print line
+    puts
+end
