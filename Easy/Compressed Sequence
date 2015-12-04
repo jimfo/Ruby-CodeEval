@@ -1,0 +1,30 @@
+# Title : Compressed Sequence from CodeEval
+# Author : James Fody
+# Description :  Program needs to count repetitions and compress the results by displaying
+# the frequency and number (ie 40 40 40 40 40 would be displayed as 5 40)
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line.strip!
+    line = line.split(" ")
+    num = Array.new
+    cnt = Array.new
+    rep = 0
+    number = 0
+
+    for i in 0...line.length
+      number = line[i]
+      rep +=1
+      if number != line[i+1]
+        num.push(line[i])
+        cnt.push(rep)
+        number = line[i+1]
+        rep = 0
+      end
+    end
+
+    print cnt.zip(num).flatten.compact.join(" ")
+    puts
+
+  end
+end
