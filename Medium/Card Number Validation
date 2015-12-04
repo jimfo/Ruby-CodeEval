@@ -1,0 +1,48 @@
+# Title : Card Number Validation from CodeEval
+# Author : James Fody
+# Description : To check whether a bank card number is valid or it is it just
+# a set of random numbers, Luhn's formula is used.
+# 1 : Start from the rightmost digit and double evey other one.
+# 2 ; Replace with result unless result is greater than 9.
+#     If the result is greater than 9 then replace with the sum of the digits of
+#     the result.
+# 3 : Get the sume of all digits.
+# 4 : If the sum of all digits % 10 = 0, the number is valid
+
+File.open("data").each_line do |line|
+  if !line.empty? || (line.length() > 11 && line.length() < 20)
+    line.strip!
+    line = line.delete(" ").split("").map{|n| n.to_i}
+    result = 0
+    x = 0
+    i = line.length-1
+    
+    while i > -1
+      i -= 1
+
+      if i > -1
+        x = 2 * line[i]
+        #puts x
+        if x < 10
+          line[i] = x
+        else
+          x = 1 + (x % 10)
+          line[i] = x
+        end
+
+      end
+      i -= 1
+    end
+
+    for i in 0...line.length
+      result += line[i]
+    end
+    
+    if result % 10 == 0
+      puts "1"
+    else
+      puts "0"
+    end
+
+  end
+end
