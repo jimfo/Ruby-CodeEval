@@ -1,0 +1,29 @@
+# Title : Road Trip from CodeEval
+# Author : James Fody
+# Description :  Print out the distance from the starting point to the nearest city,
+# and the distances between two nearest cities separated by comma, in order they appear on the route.
+
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line.strip!
+    line = line.split(";")
+    num = Array.new
+    result = Array.new
+    num[0] = 0
+
+    for i in 0...line.length
+      temp = line[i].split(",")
+      num[i+1] = temp[1].to_i
+    end
+
+    num.sort!
+
+    for i in 1...num.length
+      result[i-1] = num[i] - num[i-1]
+    end
+
+    print result.join(",")
+    puts
+  end
+end
