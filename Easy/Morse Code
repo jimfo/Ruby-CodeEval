@@ -1,0 +1,36 @@
+# Title : Morse Code from CodeEval
+# Author : James Fody
+# Description : Decrypt a message given in morse code
+
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line.strip!
+    line = line.split(/\s/)
+    word = ""
+    alpha = Array.new ["a", "b", "c", "d", "e", "f",
+                       "g", "h", "i", "j","k", "l", "m", "n", "o", "p", "q", "r", "s",
+                       "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6",
+                       "7", "8", "9", "0", " " ]
+
+    morse = Array.new [".-", "-...", "-.-.", "-..",
+                       ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.",
+                       "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--",
+                       "-..-", "-.--", "--..", ".----", "..---", "...--", "....-", ".....",
+                       "-....", "--...", "---..", "----.", "-----" ]
+
+    for i in 0...line.length
+
+      indx = morse.index(line[i])
+
+      if indx == nil
+        word += " "
+      else
+        word += alpha[indx]
+      end
+
+    end
+
+    puts word.upcase
+  end
+end
