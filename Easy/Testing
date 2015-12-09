@@ -1,0 +1,45 @@
+# Title : Testing from CodeEval
+# Author : James Fody
+# Description : The first argument is a path to a file. Each line includes a test case with two strings
+# separated by a pipeline '|'. The first string is the one the developers provided to you for testing,
+# and the second one is from design.Write a program that counts the number of bugs and prioritizes them
+# for fixing using the following statuses:
+#   'Low' - 2 or fewer bugs;
+#   'Medium' - 4 or fewer bugs;
+#   'High' - 6 or fewer bugs;
+#   'Critical' - more than 6 bugs;
+#   'Done' - all is done;
+
+File.open("data").each_line do |line|
+  if !line.empty?
+    line.strip!
+
+    line = line.split("|")
+    test = line[0].strip.split("")
+    control = line[1].strip.split("")
+    bugCount = 0
+
+    for i in 0...control.length
+      if test[i] != control[i]
+        bugCount += 1
+      end
+    end
+
+    case bugCount
+      when 1..2
+        print "Low\n"
+
+      when 3..4
+        print "Medium\n"
+
+      when 5..6
+        print "High\n"
+
+      when 7..control.length
+        print "Critical\n"
+
+      else
+        print "Done\n"
+    end
+  end
+end
